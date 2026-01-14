@@ -10,7 +10,11 @@ $arr = [1,2,3,4,5];
 $loggerFile = new LoggerFile();
 $loggerConsole = new LoggerConsole();
 
-foreach ($arr as $item) {
-    $loggerFile->logging('info', $item);
-    $loggerConsole->logging('error', $item);
+foreach ($arr as $item)
+{
+    foreach ([$loggerFile, $loggerConsole] as $logger) //по очереди
+    {
+        $logger->logging('info', $item);
+        $logger->logging('error', $item);
+    }
 }

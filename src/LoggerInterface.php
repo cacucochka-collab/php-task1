@@ -1,9 +1,9 @@
 <?php
 
 namespace App;
-interface InterfaceLogger
+interface LoggerInterface
 {
-    public function logging($event,$message);
+    function logging($event,$message);
     public function info($message);
     public function warning($message);
     public function error($message);

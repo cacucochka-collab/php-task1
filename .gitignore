@@ -2,3 +2,4 @@
 .DS_Store
 /php-task1/vendor/
 .idea
+/vendor/

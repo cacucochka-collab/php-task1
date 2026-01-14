@@ -2,9 +2,9 @@
 
 namespace App;
 
-use App\InterfaceLogger;
+use App\AbstractLogger;
 
-class LoggerFile implements InterfaceLogger
+class LoggerFile extends AbstractLogger
 {
 
     private $logFile;
@@ -20,21 +20,6 @@ class LoggerFile implements InterfaceLogger
         $timeSet = date("Y-m-d H:i:s");
         $logStr = "[time: $timeSet] [$event] - $message \n";
         file_put_contents($this->logFile, $logStr, FILE_APPEND);
-    }
-
-    public function info($message)
-    {
-        $this->logging("info", $message);
-    }
-
-    public function warning($message)
-    {
-        $this->logging("warning", $message);
-    }
-
-    public function error($message)
-    {
-        $this->logging("error", $message);
     }
 
     public function saveTxt()
